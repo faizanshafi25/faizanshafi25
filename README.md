@@ -26,6 +26,7 @@ I'm a BCA student interested in web development, software engineering, and probl
 - Git
 - GitHub
 - Visual Studio Code
+
   ---
 
 ## Projects
@@ -47,6 +48,7 @@ My first CSS-integrated assignment, created while learning the fundamentals of s
 - Learn JavaScript and build interactive web pages
 - Improve problem-solving through practical projects
 - Develop clean coding habits and use Git effectively
+- 
   ---
 
 ## Connect
