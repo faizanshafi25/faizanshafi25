@@ -1,342 +1,283 @@
-
-<!-- ====================================================== -->
-<!--                  FAIZAN SHAFI                          -->
-<!-- ====================================================== -->
+<!-- =========================================================
+     FAIZAN SHAFI | GITHUB PROFILE README
+     Theme: Midnight Navy · Cyan · Clean Developer Aesthetic
+========================================================== -->
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1120,50:123B55,100:0B1120&height=230&section=header&text=FAIZAN%20SHAFI&fontSize=48&fontColor=E2F3FF&fontAlignY=38&desc=ASPIRING%20SOFTWARE%20DEVELOPER&descAlignY=58&descSize=16" width="100%" alt="Faizan Shafi developer banner"/>
+  <img
+    src="https://capsule-render.vercel.app/api?type=waving&color=0:080D18,50:123B55,100:080D18&height=230&section=header&text=FAIZAN%20SHAFI&fontSize=48&fontColor=E2F3FF&fontAlignY=38&desc=ASPIRING%20SOFTWARE%20DEVELOPER&descAlignY=58&descSize=16"
+    width="100%"
+    alt="Faizan Shafi — Aspiring Software Developer"
+  />
 
-<p>
-  <img src="https://img.shields.io/badge/BCA-STUDENT-123B55?style=for-the-badge" alt="BCA student"/>
-  <img src="https://img.shields.io/badge/WEB-DEVELOPMENT-0E7490?style=for-the-badge" alt="Web development"/>
-  <img src="https://img.shields.io/badge/ALWAYS-LEARNING-166534?style=for-the-badge" alt="Always learning"/>
-</p>
+  <p>
+    <img src="https://img.shields.io/badge/BCA-STUDENT-123B55?style=for-the-badge" alt="BCA Student"/>
+    <img src="https://img.shields.io/badge/WEB-DEVELOPMENT-0E7490?style=for-the-badge" alt="Web Development"/>
+    <img src="https://img.shields.io/badge/ALWAYS-LEARNING-166534?style=for-the-badge" alt="Always Learning"/>
+  </p>
 
-### Hey, I'm Faizan! 👋
+  <h2>Hey, I'm Faizan.</h2>
 
-**I learn by building, improve by experimenting, and grow by solving problems.**
+  <p>
+    <b>I learn by building, improve by experimenting, and grow by solving problems.</b>
+  </p>
 
-I'm a BCA student from Srinagar, India, interested in web development,
-software engineering, and creating practical solutions with technology.
+  <p>
+    I'm a BCA student from Srinagar, India, exploring software development
+    and learning how to turn ideas into practical digital experiences.
+  </p>
 
-<br/>
-
-<a href="https://github.com/faizanshafi25?tab=repositories">
-  <img src="https://img.shields.io/badge/EXPLORE%20MY%20WORK-0F172A?style=for-the-badge&logo=github&logoColor=38BDF8" alt="Explore my work"/>
-</a>
-&nbsp;
-<a href="https://github.com/faizanshafi25">
-  <img src="https://img.shields.io/badge/MY%20GITHUB-123B55?style=for-the-badge&logo=github&logoColor=white" alt="My GitHub"/>
-</a>
+  <p>
+    <a href="https://github.com/faizanshafi25?tab=repositories">
+      <img src="https://img.shields.io/badge/EXPLORE_MY_WORK-0F172A?style=for-the-badge&logo=github&logoColor=38BDF8" alt="Explore My Work"/>
+    </a>
+    &nbsp;
+    <a href="https://www.linkedin.com/in/faizan-shafi-a198a6364/">
+      <img src="https://img.shields.io/badge/CONNECT_ON_LINKEDIN-123B55?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect on LinkedIn"/>
+    </a>
+  </p>
 
 </div>
 
-<br/>
+<br>
 
 ---
 
-## ✦ About Me
+## About Me
 
-I'm at the beginning of my software development journey, building strong fundamentals and turning what I learn into working projects.
+I'm at the beginning of my software development journey, building a strong foundation in web technologies and programming.
 
-Rather than simply collecting technologies, I want to understand how things work and develop the ability to build complete applications independently.
+I enjoy experimenting with code, understanding how websites work behind the scenes, and improving my skills through hands-on practice. For me, every project is an opportunity to learn something new and apply it in a practical way.
 
-<br/>
+- **Education:** Bachelor of Computer Applications (BCA)
+- **Location:** Srinagar, Jammu and Kashmir, India
+- **Interests:** Web development, software engineering, and technology
+- **Learning approach:** Understand the fundamentals, practise consistently, and build projects
+- **Current focus:** JavaScript fundamentals and strengthening my front-end development skills
+
+<br>
+
+---
+
+## What I'm Working On
 
 <table>
-<tr>
-<td width="50%" valign="top">
+  <tr>
+    <td width="50%" valign="top">
 
-### 🌱 What I'm Doing
+### Completed
 
-- Learning CSS and responsive design
-- Practising HTML through small websites
-- Using Git and GitHub to manage my code
-- Improving my problem-solving skills
+- HTML fundamentals and semantic structure
+- CSS fundamentals and selectors
+- Styling and organizing web pages
+- Git and GitHub basics
+- Building a personal portfolio with HTML and CSS
 
-</td>
-<td width="50%" valign="top">
+    </td>
+    <td width="50%" valign="top">
 
-### 🔭 Where I'm Heading
+### Currently Learning
 
-- JavaScript and DOM manipulation
-- Backend development with Node.js
-- React and modern frontend development
-- Complete, practical software projects
+- JavaScript fundamentals
+- Variables, data types, and operators
+- Programming logic and problem-solving
+- Understanding how JavaScript works with web pages
+- Improving code organization and development habits
 
-</td>
-</tr>
+    </td>
+  </tr>
 </table>
 
-<br/>
+<br>
 
 ---
 
-## ⚡ My Technology Stack
+## Technology Stack
 
 <p>
-  <sub>THE TOOLS I USE AND THE TECHNOLOGIES I'M WORKING TOWARDS</sub>
+  <sub>TECHNOLOGIES I'VE WORKED WITH AND THOSE I'M CURRENTLY EXPLORING</sub>
 </p>
 
-### Currently Using
+### Core Technologies
 
-<p>
-  <img src="https://skillicons.dev/icons?i=html,css,git,github,vscode&theme=dark" alt="HTML CSS Git GitHub and VS Code"/>
-</p>
+<div align="left">
+  <img src="https://skillicons.dev/icons?i=html,css,js&theme=dark" alt="HTML, CSS, and JavaScript"/>
+</div>
 
-HTML is completed at the fundamentals level, and CSS is my current learning focus.
+| Technology | Status |
+|:--|:--|
+| HTML5 | Completed — Fundamentals |
+| CSS3 | Completed — Fundamentals |
+| JavaScript | In progress |
 
-<br/>
+### Tools & Workflow
 
-### Exploring
+<div align="left">
+  <img src="https://skillicons.dev/icons?i=git,github,vscode&theme=dark" alt="Git, GitHub, and Visual Studio Code"/>
+</div>
 
-<p>
-  <img src="https://skillicons.dev/icons?i=python,nodejs&theme=dark" alt="Python and Node.js"/>
-</p>
+I use Git to track changes, GitHub to host my repositories, and Visual Studio Code as my primary development environment.
 
-I'm exploring these technologies while strengthening my web development foundation.
+### Technologies on My Roadmap
 
-<br/>
+<div align="left">
+  <img src="https://skillicons.dev/icons?i=react,nodejs,python&theme=dark" alt="React, Node.js, and Python"/>
+</div>
 
-### On My Roadmap
+These are technologies I plan to explore as I strengthen my programming fundamentals and progress toward building complete applications.
 
-<p>
-  <img src="https://skillicons.dev/icons?i=js,react&theme=dark" alt="JavaScript and React"/>
-</p>
-
-JavaScript comes next, followed by deeper frontend and backend development.
-
-<br/>
+<br>
 
 ---
 
-## 🚀 Selected Projects
-
-These projects represent my practical learning, collaborative work, and plans for future development.
-
-<br/>
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### 🌿 Kashmir Kisan Saathi
-
-<img src="https://img.shields.io/badge/COLLABORATIVE%20PROJECT-14532D?style=flat-square" alt="Collaborative project"/>
-
-A team project centred on connecting farmers with buyers and related agricultural services.
-
-**Focus areas**
-
-- Digital agriculture
-- Farmer-focused solutions
-- Team collaboration
-- Real-world problem solving
-
-</td>
-<td width="50%" valign="top">
-
-### 🌐 Web Development Practice
-
-<img src="https://img.shields.io/badge/ONGOING%20LEARNING-075985?style=flat-square" alt="Ongoing learning"/>
-
-My collection of HTML, CSS, and JavaScript learning files and practical exercises.
-
-**What I'm practising**
-
-- Semantic HTML
-- CSS selectors and styling
-- Layouts and responsive design
-- Small website projects
-
-<br/>
-
-<a href="https://github.com/faizanshafi25/html-css-js">↗ Explore the repository</a>
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🎨 CSS Experiments
-
-A space for practising styles, testing selectors, improving layouts, and recreating website designs as I learn CSS.
-
-**Current focus:** turning HTML structures into polished web pages.
-
-</td>
-<td width="50%" valign="top">
-
-### 🖥️ Personal Portfolio
-
-<img src="https://img.shields.io/badge/PLANNED-334155?style=flat-square" alt="Planned project"/>
-
-A future personal website bringing together my skills, projects, and progress as a developer.
-
-**Planned features**
-
-- Project showcase
-- Responsive interface
-- About and skills sections
-- Contact information
-
-</td>
-</tr>
-</table>
-
-<br/>
-
----
-
-## 📚 The Learning Roadmap
-
-I believe in learning one stage properly before rushing into the next.
-
-<br/>
-
-<table>
-<tr>
-<td width="8%" align="center">✅</td>
-<td width="32%">
-
-**HTML Fundamentals**
-
-</td>
-<td width="60%">
-
-Completed the core learning stage and moved on to styling.
-
-</td>
-</tr>
-<tr>
-<td align="center">🔵</td>
-<td>
-
-**CSS & Responsive Design**
-
-</td>
-<td>
-
-Current focus: styling, selectors, layouts and responsive pages.
-
-</td>
-</tr>
-<tr>
-<td align="center">⚪</td>
-<td>
-
-**JavaScript**
-
-</td>
-<td>
-
-Next stage: programming fundamentals, logic and DOM manipulation.
-
-</td>
-</tr>
-<tr>
-<td align="center">⚪</td>
-<td>
-
-**React & Node.js**
-
-</td>
-<td>
-
-Future stages: frontend libraries and backend fundamentals.
-
-</td>
-</tr>
-<tr>
-<td align="center">⚪</td>
-<td>
-
-**Real-World Applications**
-
-</td>
-<td>
-
-Combine what I learn into complete, useful projects.
-
-</td>
-</tr>
-</table>
-
-<br/>
-
----
-
-## 🎯 Goals I'm Working Towards
-
-- [ ] Become a confident and capable software developer
-- [ ] Build complete web applications independently
-- [ ] Strengthen JavaScript and programming fundamentals
-- [ ] Develop backend and database skills
-- [ ] Make meaningful open-source contributions
-- [ ] Build a professional portfolio and resume
-
-<br/>
-
----
-
-<!-- ====================================================== -->
-<!--                  GITHUB ANALYTICS                       -->
-<!-- ====================================================== -->
+<!-- ===================== PROJECTS ===================== -->
 
 <div align="center">
 
-## 📊 My GitHub Analytics
+## Selected Work
 
 <p>
-  <sub>A LOOK AT MY PUBLIC DEVELOPMENT ACTIVITY</sub>
+  Explore my GitHub repositories to see my learning progress,
+  coding practice, and projects.
 </p>
 
-<br/>
-
-<a href="https://github.com/faizanshafi25">
-  <img src="https://github-readme-stats.vercel.app/api?username=faizanshafi25&show_icons=true&hide_border=true&hide_rank=true&bg_color=0D1522&title_color=38BDF8&text_color=C9D1D9&icon_color=34D399" width="58%" alt="GitHub statistics"/>
-</a>
-
-<br/><br/>
-
-<a href="https://github.com/faizanshafi25">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=faizanshafi25&layout=compact&langs_count=6&hide_border=true&bg_color=0D1522&title_color=38BDF8&text_color=C9D1D9" width="48%" alt="Most used programming languages"/>
-</a>
-
-<br/><br/>
-
-<a href="https://github.com/faizanshafi25">
-  <img src="https://streak-stats.demolab.com/?user=faizanshafi25&hide_border=true&background=0D1522&ring=38BDF8&fire=F59E0B&currStreakLabel=38BDF8&sideLabels=C9D1D9&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=94A3B8" width="80%" alt="GitHub contribution streak"/>
-</a>
-
-<br/><br/>
+<br>
 
 <a href="https://github.com/faizanshafi25?tab=repositories">
-  <img src="https://img.shields.io/badge/DISCOVER%20MY%20REPOSITORIES-123B55?style=for-the-badge&logo=github&logoColor=white" alt="Discover my repositories"/>
+  <img
+    src="https://img.shields.io/badge/EXPLORE_ALL_MY_REPOSITORIES-123B55?style=for-the-badge&logo=github&logoColor=white"
+    alt="Explore all my GitHub repositories"
+  />
 </a>
 
-<br/><br/>
-
-<sub>
-  Statistics depend on external services and the activity they can access.
-  Language distribution describes repository code, not skill level.
-</sub>
+<br><br>
 
 </div>
 
-<br/>
+---
+
+<br>
 
 ---
 
+## Learning Roadmap
+
+My approach is simple: learn the fundamentals, apply them, and move forward as my understanding improves.
+
+| Stage | Learning Area | Status |
+|:--|:--|:--|
+| 01 | HTML Fundamentals | Completed |
+| 02 | CSS Fundamentals | Completed |
+| 03 | JavaScript Fundamentals | In Progress |
+| 04 | DOM Manipulation | Upcoming |
+| 05 | Browser APIs and Asynchronous JavaScript | Planned |
+| 06 | React and Modern Front-End Development | Planned |
+| 07 | Node.js and Back-End Fundamentals | Planned |
+| 08 | Complete Web Applications | Long-Term Goal |
+
+<br>
+
+---
+
+## Goals
+
+- [ ] Build a strong foundation in programming
+- [ ] Become confident with JavaScript and DOM manipulation
+- [ ] Create responsive and interactive websites
+- [ ] Learn modern front-end development with React
+- [ ] Explore back-end development and databases
+- [ ] Build complete projects independently
+- [ ] Contribute to open-source projects
+- [ ] Develop a professional portfolio of my work
+
+<br>
+
+---
+
+## GitHub Analytics
+
 <div align="center">
 
-## ❝ A small step every day is still progress. ❞
+  <p>
+    <sub>A SNAPSHOT OF MY PUBLIC DEVELOPMENT ACTIVITY</sub>
+  </p>
 
-<p>
-  <sub>BUILD WITH PURPOSE &nbsp; · &nbsp; LEARN WITH CURIOSITY &nbsp; · &nbsp; GROW WITH CONSISTENCY</sub>
-</p>
+  <br>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1120,50:123B55,100:0B1120&height=115&section=footer" width="100%" alt=""/>
+  <a href="https://github.com/faizanshafi25">
+    <img
+      src="https://github-readme-stats.vercel.app/api?username=faizanshafi25&show_icons=true&hide_border=true&hide_rank=true&bg_color=0B1120&title_color=38BDF8&text_color=C9D1D9&icon_color=38BDF8"
+      height="165"
+      alt="GitHub Profile Statistics"
+    />
+  </a>
+
+  <a href="https://github.com/faizanshafi25">
+    <img
+      src="https://github-readme-stats.vercel.app/api/top-langs/?username=faizanshafi25&layout=compact&langs_count=6&hide_border=true&bg_color=0B1120&title_color=38BDF8&text_color=C9D1D9"
+      height="165"
+      alt="Most Used Programming Languages"
+    />
+  </a>
+
+  <br><br>
+
+  <a href="https://github.com/faizanshafi25">
+    <img
+      src="https://streak-stats.demolab.com/?user=faizanshafi25&hide_border=true&background=0B1120&ring=38BDF8&fire=F59E0B&currStreakLabel=38BDF8&sideLabels=C9D1D9&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=94A3B8"
+      width="75%"
+      alt="GitHub Contribution Streak"
+    />
+  </a>
+
+  <br><br>
+
+  <a href="https://github.com/faizanshafi25?tab=repositories">
+    <img
+      src="https://img.shields.io/badge/DISCOVER_MY_REPOSITORIES-123B55?style=for-the-badge&logo=github&logoColor=white"
+      alt="Discover My Repositories"
+    />
+  </a>
+
+  <br><br>
+
+  <sub>
+    Statistics are provided by external services and may occasionally be unavailable.
+    Language distribution reflects repository code, not individual proficiency.
+  </sub>
+
+</div>
+
+<br>
+
+---
+
+## Connect With Me
+
+<div align="center">
+
+  <p>
+    I'm always interested in learning, building useful things, and connecting
+    with people who share an interest in technology.
+  </p>
+
+  <a href="https://github.com/faizanshafi25">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
+  &nbsp;
+  <a href="https://www.linkedin.com/in/faizan-shafi-a198a6364/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+
+  <br><br>
+
+  <h3>Learn with curiosity. Build with purpose. Improve every day.</h3>
+
+  <img
+    src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1120,50:123B55,100:0B1120&height=115&section=footer"
+    width="100%"
+    alt=""
+  />
 
 </div>
