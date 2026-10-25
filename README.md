@@ -14,7 +14,7 @@
 
   <a href="https://github.com/faizanshafi25">
     <img
-      src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=21&duration=3200&pause=1000&color=38BDF8&center=true&vCenter=true&width=640&height=48&lines=BCA+student+from+Srinagar;Currently+learning+JavaScript;HTML+%2B+CSS+done%2C+DOM+is+next;Turning+curiosity+into+code"
+      src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=21&duration=3200&pause=1000&color=38BDF8&center=true&vCenter=true&width=640&height=48&lines=Turning+curiosity+into+code"
       alt="Typing animation: BCA student from Srinagar, currently learning JavaScript"
     />
   </a>
