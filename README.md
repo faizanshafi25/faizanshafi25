@@ -1,7 +1,7 @@
 <!-- =========================================================
      FAIZAN SHAFI | GITHUB PROFILE README
-     Theme: Midnight Navy / Cyan / Clean Developer Aesthetic
-     Custom graphics live in /assets (journey, project cards, dividers)
+     Custom graphics live in /assets. The stats card in
+     assets/stats.svg is generated daily by .github/workflows/stats.yml
 ========================================================== -->
 
 <div align="center">
@@ -40,17 +40,16 @@
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
-## About Me
+## About
 
-I'm a BCA student from Srinagar, building a strong foundation in web development one project at a time. I like understanding how websites work behind the scenes, and I learn best by experimenting with code and applying what I study.
+I'm a BCA student in Srinagar, building a solid foundation in web development one project at a time. I like understanding how websites work behind the scenes, and I learn best by experimenting with code and applying what I study.
 
 | | |
 |:--|:--|
 | **Education** | Bachelor of Computer Applications (BCA) |
 | **Location** | Srinagar, Jammu and Kashmir, India |
-| **Interests** | Web development, software engineering, technology |
-| **Approach** | Understand the fundamentals, practise consistently, build projects |
-| **Current focus** | JavaScript fundamentals and front-end development |
+| **Focus** | JavaScript fundamentals and front-end development |
+| **Approach** | Learn the fundamentals, practise consistently, build projects |
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
@@ -62,6 +61,11 @@ I'm a BCA student from Srinagar, building a strong foundation in web development
 
 <br>
 
+<details>
+<summary><b>Details and full roadmap</b></summary>
+
+<br>
+
 | Covered so far | Practising now |
 |:--|:--|
 | HTML fundamentals and semantic structure | JavaScript fundamentals |
@@ -70,21 +74,16 @@ I'm a BCA student from Srinagar, building a strong foundation in web development
 | Git and GitHub basics | How JavaScript works with web pages |
 | A personal portfolio built with HTML and CSS | Writing cleaner, better-organized code |
 
-<details>
-<summary><b>See the full roadmap</b></summary>
-
-<br>
-
-| Stage | Learning Area | Status |
+| Stage | Learning area | Status |
 |:--|:--|:--|
-| 01 | HTML Fundamentals | Completed |
-| 02 | CSS Fundamentals | Completed |
-| 03 | JavaScript Fundamentals | **In progress** |
-| 04 | DOM Manipulation | Up next |
-| 05 | Browser APIs and Asynchronous JavaScript | Planned |
-| 06 | React and Modern Front-End Development | Planned |
-| 07 | Node.js and Back-End Fundamentals | Planned |
-| 08 | Complete Web Applications | Long-term goal |
+| 01 | HTML fundamentals | Completed |
+| 02 | CSS fundamentals | Completed |
+| 03 | JavaScript fundamentals | **In progress** |
+| 04 | DOM manipulation | Up next |
+| 05 | Browser APIs and asynchronous JavaScript | Planned |
+| 06 | React and modern front-end development | Planned |
+| 07 | Node.js and back-end fundamentals | Planned |
+| 08 | Complete web applications | Long-term goal |
 
 </details>
 
@@ -113,7 +112,7 @@ I'm a BCA student from Srinagar, building a strong foundation in web development
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
-## Selected Work
+## Projects
 
 <div align="center">
 
@@ -128,12 +127,6 @@ I'm a BCA student from Srinagar, building a strong foundation in web development
 <br><br>
 
 <img src="assets/project-next.svg" width="80%" alt="Next up: my first JavaScript project"/>
-
-<br><br>
-
-<a href="https://github.com/faizanshafi25?tab=repositories">
-  <img src="https://img.shields.io/badge/EXPLORE_ALL_MY_REPOSITORIES-123B55?style=for-the-badge&logo=github&logoColor=white" alt="Explore all my repositories"/>
-</a>
 
 </div>
 
@@ -155,12 +148,8 @@ I'm a BCA student from Srinagar, building a strong foundation in web development
 <div align="center">
 
 <a href="https://github.com/faizanshafi25">
-  <img src="assets/stats.svg" width="85%" alt="GitHub stats and streaks for faizanshafi25"/>
+  <img src="assets/stats.svg" width="85%" alt="GitHub contributions, commits, pull requests, repositories and streaks for faizanshafi25"/>
 </a>
-
-<br>
-
-<sub>Generated from my GitHub activity and refreshed daily.</sub>
 
 </div>
 
@@ -168,7 +157,7 @@ I'm a BCA student from Srinagar, building a strong foundation in web development
 
 <div align="center">
 
-## Connect With Me
+## Connect
 
 <p>
   I'm always interested in learning, building useful things, and meeting people who enjoy technology.
