@@ -14,7 +14,7 @@
 
   <a href="https://github.com/faizanshafi25">
     <img
-      src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=21&duration=3200&pause=1000&color=38BDF8&center=true&vCenter=true&width=640&height=48&lines=Currently+learning+JavaScript;HTML+%2B+CSS+done%2C+DOM+is+next;Turning+curiosity+into+code"
+      src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=21&duration=3200&pause=1000&color=38BDF8&center=true&vCenter=true&width=640&height=48&lines=BCA+student+from+Srinagar;Currently+learning+JavaScript;HTML+%2B+CSS+done%2C+DOM+is+next;Turning+curiosity+into+code"
       alt="Typing animation: BCA student from Srinagar, currently learning JavaScript"
     />
   </a>
@@ -154,23 +154,13 @@ I'm a BCA student from Srinagar, building a strong foundation in web development
 
 <div align="center">
 
-<sub>Cards refresh on their own schedule, so new activity can take a few hours to appear.</sub>
-
-<br><br>
-
 <a href="https://github.com/faizanshafi25">
-  <img
-    src="https://streak-stats.demolab.com/?user=faizanshafi25&hide_border=true&background=0B1120&ring=38BDF8&fire=F59E0B&currStreakLabel=38BDF8&sideLabels=C9D1D9&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=94A3B8&date_format=M%20j%5B%2C%20Y%5D&v=2"
-    width="75%"
-    alt="GitHub contribution streak"
-  />
+  <img src="assets/stats.svg" width="85%" alt="GitHub stats and streaks for faizanshafi25"/>
 </a>
 
-<br><br>
+<br>
 
-<a href="https://github.com/faizanshafi25">
-  <img src="assets/stats.svg" width="75%" alt="GitHub stats for faizanshafi25"/>
-</a>
+<sub>Generated from my GitHub activity and refreshed daily.</sub>
 
 </div>
 
