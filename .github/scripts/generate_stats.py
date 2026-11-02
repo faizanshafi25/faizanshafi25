@@ -1,8 +1,18 @@
-"""Generate assets/stats.svg (stats + streaks) from the GitHub GraphQL API.
-Standard library only."""
+#!/usr/bin/env python3
+"""Generate assets/stats.svg: a clean GitHub stats + streak card.
+
+Uses only the Python standard library and the GitHub GraphQL API.
+If anything fails, the script exits with an error and leaves the
+existing card untouched.
+"""
+from __future__ import annotations
+
 import datetime as dt
 import json
 import os
+import sys
+import time
+import urllib.error
 import urllib.request
 from xml.sax.saxutils import escape
 
@@ -26,23 +36,29 @@ query($login: String!) {
 }
 """
 
+# ---------------------------------------------------------------- data
 
-def streaks(days):
-    """days: list of (date, count). Returns (current, longest, longest_start, longest_end)."""
+
+def compute_streaks(days):
+    """days: iterable of (iso_date, count).
+
+    Returns (current, longest, longest_start, longest_end).
+    A day with no contribution yet today does not break the current streak.
+    """
     days = sorted(days)
     longest = run = 0
     run_start = None
     best = (None, None)
-    for d, n in days:
-        if n > 0:
+    for date, count in days:
+        if count > 0:
             if run == 0:
-                run_start = d
+                run_start = date
             run += 1
             if run > longest:
-                longest, best = run, (run_start, d)
+                longest, best = run, (run_start, date)
         else:
             run = 0
-    # Current streak: today may still be empty, so then it counts from yesterday.
+
     current = 0
     i = len(days) - 1
     if i >= 0 and days[i][1] == 0:
@@ -53,97 +69,142 @@ def streaks(days):
     return current, longest, best[0], best[1]
 
 
-def build(total, commits, prs, repos, days):
-    cur, lon, ls, le = streaks(days)
-    return {"total": total, "commits": commits, "prs": prs, "repos": repos,
-            "current": cur, "longest": lon, "longest_start": ls, "longest_end": le}
+def request_json(payload, attempts=3):
+    last = None
+    for n in range(attempts):
+        try:
+            req = urllib.request.Request(
+                "https://api.github.com/graphql",
+                data=json.dumps(payload).encode(),
+                headers={
+                    "Authorization": f"bearer {TOKEN}",
+                    "Content-Type": "application/json",
+                    "User-Agent": "profile-stats-card",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return json.load(resp)
+        except (urllib.error.URLError, TimeoutError) as exc:
+            last = exc
+            time.sleep(2 * (n + 1))
+    raise SystemExit(f"Could not reach the GitHub API: {last}")
 
 
-def fetch():
-    req = urllib.request.Request(
-        "https://api.github.com/graphql",
-        data=json.dumps({"query": QUERY, "variables": {"login": USER}}).encode(),
-        headers={"Authorization": f"bearer {TOKEN}", "Content-Type": "application/json",
-                 "User-Agent": "profile-stats-card"},
-    )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        payload = json.load(r)
-    if "errors" in payload or not payload.get("data", {}).get("user"):
-        raise SystemExit(f"GitHub API error: {payload.get('errors', payload)}")
-    u = payload["data"]["user"]
-    c = u["contributionsCollection"]
-    cal = c["contributionCalendar"]
-    days = [(d["date"], d["contributionCount"])
-            for w in cal["weeks"] for d in w["contributionDays"]]
-    # Drop future days in the last (partial) week, if any.
+def fetch_stats():
+    if not TOKEN:
+        raise SystemExit("GITHUB_TOKEN is not set.")
+    data = request_json({"query": QUERY, "variables": {"login": USER}})
+    user = (data.get("data") or {}).get("user")
+    if "errors" in data or not user:
+        raise SystemExit(f"GitHub API error: {data.get('errors', data)}")
+
+    coll = user["contributionsCollection"]
+    cal = coll["contributionCalendar"]
     today = dt.datetime.now(dt.timezone.utc).date().isoformat()
-    days = [x for x in days if x[0] <= today]
-    return build(cal["totalContributions"], c["totalCommitContributions"],
-                 c["totalPullRequestContributions"], u["repositories"]["totalCount"], days)
+    days = [
+        (d["date"], d["contributionCount"])
+        for week in cal["weeks"]
+        for d in week["contributionDays"]
+        if d["date"] <= today
+    ]
+    current, longest, start, end = compute_streaks(days)
+    return {
+        "contributions": cal["totalContributions"],
+        "commits": coll["totalCommitContributions"],
+        "pull_requests": coll["totalPullRequestContributions"],
+        "repos": user["repositories"]["totalCount"],
+        "current": current,
+        "longest": longest,
+        "longest_range": (start, end),
+    }
 
 
-def mock():
-    if os.environ["MOCK"] == "blank":
-        return {k: "-" for k in ["total", "commits", "prs", "repos", "current", "longest"]} | \
-               {"longest_start": None, "longest_end": None}
+def demo_stats(kind):
+    """Local previews only: MOCK=demo or MOCK=blank."""
+    if kind == "blank":
+        return {k: "-" for k in
+                ("contributions", "commits", "pull_requests", "repos", "current", "longest")} | {
+                    "longest_range": (None, None)}
     base = dt.date(2026, 11, 2)
-    counts = [3, 1, 0, 2, 5, 4, 1, 0, 0, 2, 1, 1, 6, 2]  # newest last
-    days = [((base - dt.timedelta(days=len(counts) - 1 - i)).isoformat(), n) for i, n in enumerate(counts)]
-    return build(45, 31, 2, 3, days)
+    counts = [3, 1, 0, 2, 5, 4, 1, 0, 0, 2, 1, 1, 6, 2]
+    days = [((base - dt.timedelta(days=len(counts) - 1 - i)).isoformat(), n)
+            for i, n in enumerate(counts)]
+    current, longest, start, end = compute_streaks(days)
+    return {"contributions": 45, "commits": 31, "pull_requests": 2, "repos": 3,
+            "current": current, "longest": longest, "longest_range": (start, end)}
+
+# ------------------------------------------------------------- rendering
+
+SANS = "'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+BG, BORDER, TILE = "#0B1120", "#123B55", "#0E2A40"
+CYAN, TEXT, MUTED, DIM = "#38BDF8", "#E2F3FF", "#94A3B8", "#64748B"
 
 
-def fmt_day(s):
-    d = dt.date.fromisoformat(s)
+def short_date(iso):
+    d = dt.date.fromisoformat(iso)
     return f"{d.strftime('%b')} {d.day}"
 
 
+def days_label(n):
+    if n == "-":
+        return "-"
+    return f"{n} day" if n == 1 else f"{n} days"
+
+
+def tile(col, row, label, value, note=""):
+    x = 40 + col * 192
+    y = 78 + row * 100
+    note_svg = (
+        f'<text x="{x + 20}" y="{y + 77}" font-family="{SANS}" font-size="12" fill="{DIM}">{escape(note)}</text>'
+        if note else ""
+    )
+    return (
+        f'  <rect x="{x}" y="{y}" width="176" height="88" rx="12" fill="{TILE}" fill-opacity="0.6" stroke="{BORDER}"/>\n'
+        f'  <text x="{x + 20}" y="{y + 28}" font-family="{SANS}" font-size="14" fill="{MUTED}">{escape(label)}</text>\n'
+        f'  <text x="{x + 20}" y="{y + 58}" font-family="{SANS}" font-size="32" font-weight="700" fill="{CYAN}">{escape(str(value))}</text>\n'
+        f'  {note_svg}\n'
+    )
+
+
 def render(s):
-    SANS = "'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
-    top = [("Contributions", s["total"]), ("Commits", s["commits"]),
-           ("Pull requests", s["prs"]), ("Public repos", s["repos"])]
-    out = []
-    for i, (label, value) in enumerate(top):
-        x = 40 + i * 142
-        out.append(
-            f'  <rect x="{x}" y="76" width="130" height="86" rx="12" fill="#0E2A40" fill-opacity="0.55" stroke="#123B55"/>\n'
-            f'  <text x="{x+65}" y="119" text-anchor="middle" font-family="{SANS}" font-size="36" font-weight="700" fill="#38BDF8">{escape(str(value))}</text>\n'
-            f'  <text x="{x+65}" y="147" text-anchor="middle" font-family="{SANS}" font-size="15" fill="#94A3B8">{escape(label)}</text>\n')
-
-    def unit(n):
-        return "-" if n == "-" else f"{n} {'day' if n == 1 else 'days'}"
-
-    cur_sub = "Days in a row with a contribution"
-    if s["longest_start"]:
-        lon_sub = (fmt_day(s["longest_start"]) if s["longest_start"] == s["longest_end"]
-                   else f'{fmt_day(s["longest_start"])} - {fmt_day(s["longest_end"])}')
+    start, end = s["longest_range"]
+    if start and end:
+        note = short_date(start) if start == end else f"{short_date(start)} - {short_date(end)}"
     else:
-        lon_sub = "Best run in the last 12 months"
-    for x, label, value, sub, accent in [
-        (40, "Current streak", unit(s["current"]), cur_sub, "#F59E0B"),
-        (326, "Longest streak", unit(s["longest"]), lon_sub, "#38BDF8")]:
-        out.append(
-            f'  <rect x="{x}" y="174" width="274" height="92" rx="12" fill="#0E2A40" fill-opacity="0.55" stroke="#123B55"/>\n'
-            f'  <rect x="{x}" y="174" width="5" height="92" rx="2.5" fill="{accent}"/>\n'
-            f'  <text x="{x+26}" y="206" font-family="{SANS}" font-size="15" fill="#94A3B8">{escape(label)}</text>\n'
-            f'  <text x="{x+26}" y="240" font-family="{SANS}" font-size="32" font-weight="700" fill="{accent}">{escape(value)}</text>\n'
-            f'  <text x="{x+26}" y="258" font-family="{SANS}" font-size="12" fill="#64748B">{escape(sub)}</text>\n')
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 316" role="img" aria-label="GitHub stats and streaks for {escape(USER)}">
+        note = ""
+    tiles = "".join([
+        tile(0, 0, "Contributions", s["contributions"]),
+        tile(1, 0, "Commits", s["commits"]),
+        tile(2, 0, "Pull requests", s["pull_requests"]),
+        tile(0, 1, "Public repositories", s["repos"]),
+        tile(1, 1, "Current streak", days_label(s["current"])),
+        tile(2, 1, "Longest streak", days_label(s["longest"]), note),
+    ])
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="GitHub stats and streaks for {escape(USER)}">
   <defs>
-    <linearGradient id="bar" x1="0" x2="1"><stop offset="0" stop-color="#0E7490"/><stop offset="1" stop-color="#38BDF8"/></linearGradient>
-    <clipPath id="c"><rect x="1.5" y="1.5" width="637" height="313" rx="16"/></clipPath>
+    <linearGradient id="bar" x1="0" x2="1"><stop offset="0" stop-color="#0E7490"/><stop offset="1" stop-color="{CYAN}"/></linearGradient>
+    <clipPath id="c"><rect x="1.5" y="1.5" width="637" height="317" rx="16"/></clipPath>
   </defs>
-  <rect x="1.5" y="1.5" width="637" height="313" rx="16" fill="#0B1120" stroke="#123B55" stroke-width="2"/>
+  <rect x="1.5" y="1.5" width="637" height="317" rx="16" fill="{BG}" stroke="{BORDER}" stroke-width="2"/>
   <g clip-path="url(#c)"><rect x="0" y="0" width="640" height="6" fill="url(#bar)"/></g>
-  <text x="40" y="50" font-family="{SANS}" font-size="22" font-weight="700" fill="#E2F3FF">GitHub stats</text>
-  <text x="600" y="50" text-anchor="end" font-family="{SANS}" font-size="15" fill="#94A3B8">last 12 months · updated daily</text>
-{"".join(out)}  <text x="40" y="293" font-family="{SANS}" font-size="13" fill="#64748B">Source: GitHub contribution data for @{escape(USER)}</text>
+  <text x="40" y="50" font-family="{SANS}" font-size="22" font-weight="700" fill="{TEXT}">GitHub activity</text>
+  <text x="600" y="50" text-anchor="end" font-family="{SANS}" font-size="14" fill="{MUTED}">@{escape(USER)} · last 12 months</text>
+{tiles}  <text x="40" y="296" font-family="{SANS}" font-size="12" fill="{DIM}">Source: GitHub contribution data. Updated daily.</text>
 </svg>
 '''
 
+# ------------------------------------------------------------------ main
+
+
+def main():
+    mock = os.environ.get("MOCK")
+    stats = demo_stats(mock) if mock else fetch_stats()
+    svg = render(stats)
+    os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
+    with open(OUT, "w", encoding="utf-8") as fh:
+        fh.write(svg)
+    print("Wrote", OUT, stats)
+
 
 if __name__ == "__main__":
-    stats = mock() if os.environ.get("MOCK") else fetch()
-    os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
-    with open(OUT, "w", encoding="utf-8") as f:
-        f.write(render(stats))
-    print("wrote", OUT, stats)
+    sys.exit(main())
