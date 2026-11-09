@@ -173,7 +173,7 @@ I'm a BCA student in Srinagar, building a solid foundation in web development on
 
 <br><br>
 
-### Learn with curiosity. Build with purpose. Improve every day.
+### Learn with curiosity. Build with purpose.
 
 <img
   src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1120,50:0E7490,100:0B1120&height=115&section=footer"
