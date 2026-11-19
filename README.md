@@ -114,19 +114,17 @@ I'm a BCA student in Srinagar, building a solid foundation in web development on
 
 ## Projects
 
+<!-- TODO: if your resume site URL differs, replace it in the link below -->
+
 <div align="center">
 
 <a href="https://github.com/faizanshafi25/ASC-SEC-Project">
   <img src="assets/project-portfolio.svg" width="48%" alt="ASC-SEC-Project: a personal portfolio website built with HTML and CSS"/>
 </a>
 &nbsp;
-<a href="https://github.com/faizanshafi25/apc-project">
-  <img src="assets/project-apc.svg" width="48%" alt="apc-project: Applied Computing course project"/>
+<a href="https://faizanshafi25.github.io/Resume/">
+  <img src="assets/project-resume.svg" width="48%" alt="My Personal Resume: a personal resume website built with HTML, CSS and JavaScript"/>
 </a>
-
-<br><br>
-
-<img src="assets/project-next.svg" width="80%" alt="Next up: my first JavaScript project"/>
 
 </div>
 
